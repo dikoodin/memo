@@ -1,7 +1,7 @@
 MemoSoft Demo
 =============
 
-Application is to demonstrate integration of diferent technologies Java 6, JSF 2.0, Spring 3, JPA and PostgreSQL running on Tomcat 7.
+Application is to demonstrate integration of Java 6, JSF 2.0, Spring 3, JPA and PostgreSQL, Tomcat 7.
 Please check the versions in pom.xml file.
 
 Running the Demo
