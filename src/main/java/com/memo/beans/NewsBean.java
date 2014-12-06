@@ -10,7 +10,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import com.memo.entity.News;
-import com.memo.manager.ViewMsgBean;
 import com.memo.service.NewsService;
 
 @ManagedBean(name = "newsBean")

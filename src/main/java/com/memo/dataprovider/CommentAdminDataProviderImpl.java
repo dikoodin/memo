@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.memo.datamodel.DataModel;
 import com.memo.datamodel.DataProvider;
 import com.memo.entity.Comment;
-import com.memo.model.data.CommentModel;
+import com.memo.model.CommentModel;
 
 @Service
 public class CommentAdminDataProviderImpl extends AbstractCommentDataProvider

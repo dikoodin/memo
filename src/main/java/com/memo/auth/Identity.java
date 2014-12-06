@@ -1,4 +1,4 @@
-package com.memo.session;
+package com.memo.auth;
 
 import java.io.Serializable;
 import java.util.HashSet;

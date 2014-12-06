@@ -10,9 +10,9 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.memo.auth.Identity;
 import com.memo.entity.UserEntity;
 import com.memo.mock.MockFacesContext;
-import com.memo.session.Identity;
 
 public class MyAccountTest {
 

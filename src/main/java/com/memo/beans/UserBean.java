@@ -8,7 +8,6 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import com.memo.entity.User;
-import com.memo.manager.ViewMsgBean;
 import com.memo.service.UserService;
 import com.memo.utils.Component;
 import com.memo.utils.Const;

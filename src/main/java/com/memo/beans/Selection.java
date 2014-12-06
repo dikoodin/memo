@@ -1,4 +1,4 @@
-package com.memo.manager;
+package com.memo.beans;
 
 import javax.faces.bean.ManagedBean;
 

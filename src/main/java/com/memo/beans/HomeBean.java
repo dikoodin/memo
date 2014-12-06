@@ -11,9 +11,7 @@ import org.primefaces.component.datalist.DataList;
 
 import com.memo.datamodel.DataProvider;
 import com.memo.datamodel.KDataModel;
-import com.memo.manager.Selection;
-import com.memo.manager.ViewMsgBean;
-import com.memo.model.data.NewsModel;
+import com.memo.model.NewsModel;
 import com.memo.utils.Component;
 
 @ViewScoped

@@ -1,4 +1,4 @@
-package com.memo.manager;
+package com.memo.beans;
 
 import java.io.Serializable;
 

@@ -9,7 +9,6 @@ import javax.faces.bean.ViewScoped;
 
 import com.memo.entity.News;
 import com.memo.entity.NewsEntity;
-import com.memo.manager.ViewMsgBean;
 import com.memo.service.NewsService;
 import com.memo.utils.Component;
 

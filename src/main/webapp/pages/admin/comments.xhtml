@@ -11,10 +11,10 @@
         <h:form>
             <h:panelGroup id="comm_panel">
                 <p:dataTable id="ut_id" value="#{commentListBean.commentList}" 
-                    var="e" width="100%"
-                    paginator="true" rows="50"  lazy="true"
+                    var="e" style="width: 100%"
+                    paginator="true" rows="10"  lazy="true"
                     paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
-                    rowsPerPageTemplate="10, 25, 50, 100" >
+                    rowsPerPageTemplate="10, 25, 50" >
                     <p:column styleClass="tac">
                         <f:facet name="header">
                             <h:outputText value="#{messages.id_msg}" />

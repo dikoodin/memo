@@ -10,7 +10,7 @@ import com.memo.dao.UserDAO;
 import com.memo.datamodel.DataModel;
 import com.memo.datamodel.DataProvider;
 import com.memo.entity.User;
-import com.memo.model.data.UserModel;
+import com.memo.model.UserModel;
 
 @Service
 public class UserModelDataProviderImpl implements

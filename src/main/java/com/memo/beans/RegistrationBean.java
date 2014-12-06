@@ -9,7 +9,6 @@ import javax.faces.bean.ViewScoped;
 
 import com.memo.entity.User;
 import com.memo.entity.UserEntity;
-import com.memo.manager.ViewMsgBean;
 import com.memo.service.UserService;
 import com.memo.utils.Util;
 

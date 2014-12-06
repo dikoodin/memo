@@ -11,8 +11,7 @@ import org.primefaces.component.datatable.DataTable;
 
 import com.memo.datamodel.DataProvider;
 import com.memo.datamodel.KDataModel;
-import com.memo.manager.ViewMsgBean;
-import com.memo.model.data.UserModel;
+import com.memo.model.UserModel;
 
 @ViewScoped
 @ManagedBean(name = "userListBean")

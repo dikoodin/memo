@@ -1,3 +1,6 @@
+/*
+ * PostgreSQL
+ */
 CREATE TABLE users
 (
   id bigserial NOT NULL,

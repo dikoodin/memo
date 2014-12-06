@@ -1,4 +1,4 @@
-package com.memo.model.data;
+package com.memo.model;
 
 import java.util.Date;
 

@@ -13,6 +13,7 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.memo.auth.Identity;
 import com.memo.datamodel.DataModel;
 import com.memo.datamodel.DataProvider;
 import com.memo.entity.Comment;
@@ -20,9 +21,8 @@ import com.memo.entity.CommentEntity;
 import com.memo.entity.UserEntity;
 import com.memo.mock.MockFacesContext;
 import com.memo.mock.MockMessageIntegrpolator;
-import com.memo.model.data.CommentModel;
+import com.memo.model.CommentModel;
 import com.memo.service.CommentService;
-import com.memo.session.Identity;
 
 public class CommentListBeanTest {
 

@@ -11,7 +11,7 @@ import com.memo.dao.NewsDAO;
 import com.memo.datamodel.DataModel;
 import com.memo.datamodel.DataProvider;
 import com.memo.entity.News;
-import com.memo.model.data.NewsModel;
+import com.memo.model.NewsModel;
 import com.memo.utils.Util;
 
 @Service

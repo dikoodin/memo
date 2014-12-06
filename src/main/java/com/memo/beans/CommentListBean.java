@@ -9,14 +9,13 @@ import javax.faces.bean.ViewScoped;
 
 import org.primefaces.component.datatable.DataTable;
 
+import com.memo.auth.Identity;
 import com.memo.datamodel.DataProvider;
 import com.memo.datamodel.KDataModel;
 import com.memo.entity.Comment;
 import com.memo.entity.User;
-import com.memo.manager.ViewMsgBean;
-import com.memo.model.data.CommentModel;
+import com.memo.model.CommentModel;
 import com.memo.service.CommentService;
-import com.memo.session.Identity;
 import com.memo.utils.Component;
 
 @ViewScoped

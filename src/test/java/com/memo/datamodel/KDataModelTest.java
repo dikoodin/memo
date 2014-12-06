@@ -13,11 +13,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import com.memo.auth.Identity;
 import com.memo.entity.UserEntity;
 import com.memo.mock.MockFacesContext;
 import com.memo.mock.MockMessageIntegrpolator;
-import com.memo.model.data.CommentModel;
-import com.memo.session.Identity;
+import com.memo.model.CommentModel;
 
 public class KDataModelTest {
 

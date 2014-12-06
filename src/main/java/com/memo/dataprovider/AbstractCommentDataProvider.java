@@ -6,7 +6,7 @@ import com.memo.dao.CommentDAO;
 import com.memo.dao.UserDAO;
 import com.memo.entity.Comment;
 import com.memo.entity.User;
-import com.memo.model.data.CommentModel;
+import com.memo.model.CommentModel;
 
 public abstract class AbstractCommentDataProvider {
 

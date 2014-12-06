@@ -9,10 +9,9 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
 import com.memo.auth.AuthenticationService;
+import com.memo.auth.Identity;
 import com.memo.entity.User;
-import com.memo.manager.ViewMsgBean;
 import com.memo.service.UserService;
-import com.memo.session.Identity;
 import com.memo.utils.Component;
 import com.memo.utils.Const;
 import com.memo.utils.Util;

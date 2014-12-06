@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 import com.memo.entity.User;
 import com.memo.entity.UserEntity;
-import com.memo.model.data.UserModel;
+import com.memo.model.UserModel;
 import com.memo.utils.Const;
 
 @Repository
