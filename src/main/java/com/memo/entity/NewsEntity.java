@@ -77,18 +77,4 @@ public class NewsEntity extends VersionEntity implements News {
         this.active = active;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        NewsEntity other = (NewsEntity) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
-
 }

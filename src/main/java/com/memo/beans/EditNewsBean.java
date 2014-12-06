@@ -30,10 +30,7 @@ public class EditNewsBean extends ViewMsgBean implements Serializable {
     public void init() {
         try {
             Long newsId = Component.getParamLong("newsId");
-            if (newsId == null) {
-                newsId = new Long(0);
-            }
-            if (newsId > 0) {
+            if (newsId != null && newsId > 0) {
                 news = newsService.find(newsId);
             } else {
                 news = new NewsEntity();

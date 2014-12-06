@@ -43,7 +43,6 @@ public class KDataModelTest {
     @Test
     public void whenEntityExistsThenLoadShouldReturnNonEmptyList() {
         //GIVEN
-        Long commentId = 1L;
         List<CommentModel> list = Arrays.asList(new CommentModel());
         Mockito.when(dataProvider.getItemsByRange(Matchers.any(DataModel.class),
                 Matchers.anyInt(), Matchers.anyInt(), Matchers.anyVararg())).thenReturn(list);

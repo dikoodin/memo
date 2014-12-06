@@ -25,10 +25,9 @@ public class MyAccount extends ViewMsgBean implements Serializable {
     private static final long serialVersionUID = -5307825474425830753L;
 
     private AccountData accountData;
-    private User user;
 
     @ManagedProperty("#{userServiceImpl}")
-    protected UserService userService;
+    private UserService userService;
 
     @PostConstruct
     public void init() {
@@ -42,7 +41,7 @@ public class MyAccount extends ViewMsgBean implements Serializable {
 
     protected void loadData() {
         Identity identity = (Identity) Component.getInstance(Identity.NAME);
-        user = identity.getUser();
+        User user = identity.getUser();
         if (user == null) {
             setError(true);
             return;
@@ -58,21 +57,22 @@ public class MyAccount extends ViewMsgBean implements Serializable {
         }
         boolean exists = userService.check(accountData.getUsername(),
                 accountData.getEmail(),
-                user.getId());
+                accountData.getUserId());
         if (exists) {
             error("user_exist_msg");
             return;
         }
-        user.updateData(accountData);
         try {
+            User user = userService.find(accountData.getUserId());
+            user.updateData(accountData);
             user = userService.update(user);
+            Identity identity = (Identity) Component.getInstance(Identity.NAME);
+            identity.setUser(user);
             success();
         } catch (Exception e) {
             e.printStackTrace();
             error(Const.BAD_THING);
         }
-        Identity identity = (Identity) Component.getInstance(Identity.NAME);
-        identity.init(user);
     }
 
     public AccountData getAccountData() {

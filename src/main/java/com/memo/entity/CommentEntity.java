@@ -76,18 +76,4 @@ public class CommentEntity extends BaseEntity implements Comment {
         this.approvedBy = approvedBy;
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        CommentEntity other = (CommentEntity) obj;
-        if (id != other.id)
-            return false;
-        return true;
-    }
-
 }

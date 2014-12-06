@@ -62,7 +62,7 @@ public class CommentListBean extends ViewMsgBean implements Serializable {
         Comment comm = commentService.find(commentId);
         comm.setApproved(!comm.isApproved());
         comm.setApprovedBy(user.getId());
-        comm = commentService.update(comm);
+        commentService.update(comm);
         success();
     }
 

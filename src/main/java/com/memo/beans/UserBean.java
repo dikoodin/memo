@@ -10,7 +10,6 @@ import javax.faces.bean.ViewScoped;
 import com.memo.entity.User;
 import com.memo.service.UserService;
 import com.memo.utils.Component;
-import com.memo.utils.Const;
 
 @ManagedBean(name = "userBean")
 @ViewScoped
@@ -29,11 +28,9 @@ public class UserBean extends ViewMsgBean implements Serializable {
     @PostConstruct
     public void init() {
         Long userId = Component.getParamLong("userId");
-        if (userId == null || userId <= 0) {
-            error(Const.BAD_THING);
-            return;
+        if (userId != null && userId > 0) {
+            user = userService.find(userId);
         }
-        user = userService.find(userId);
     }
 
     public User getUser() {

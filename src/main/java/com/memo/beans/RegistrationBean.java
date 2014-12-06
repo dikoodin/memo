@@ -94,7 +94,7 @@ public class RegistrationBean extends ViewMsgBean implements Serializable {
         User user = new UserEntity(username, criptedPassword, email,
                 firstname, lastname, null, null, null, null);
         user.setAcceptedTerms(true);
-        user = userService.update(user);
+        userService.update(user);
         success();
         return "login";
     }

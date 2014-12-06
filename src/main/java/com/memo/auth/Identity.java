@@ -37,7 +37,7 @@ public class Identity implements Serializable {
         LOG.info("=== Init identity ===");
     }
 
-    public void init(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
