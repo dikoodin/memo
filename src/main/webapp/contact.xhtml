@@ -1,0 +1,76 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/template.xhtml">
+
+    <ui:define name="head">
+        <meta name="language" content="English" />
+        <title>Memo - Contact</title>
+    </ui:define>
+    
+    <ui:define name="left">
+        <ui:include src="/layout/memo_logo.xhtml" />
+    </ui:define>
+    
+    <ui:define name="body">
+        <div style="position: relative;left: 50px;">
+        <span class="xr_s7">
+          <span class="xr_tl">#{messages.contact_msg} ...</span>
+         </span>
+         <br />
+         <div style="position: relative;top: 20px;">
+             <table width="600" class="fs14" cellpadding="5">
+                 <tr>
+                     <td>
+                         Name:
+                     </td>
+                     <td>
+                         Dejan Ikodinovic
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         Address:
+                     </td>
+                     <td>
+                         Jesenjinova 12
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         City:
+                     </td>
+                     <td>
+                         Kragujevac
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         Tel:
+                     </td>
+                     <td>
+                        123456789
+                     </td>
+                 </tr>
+                 <tr>
+                     <td>
+                         E-mail:
+                     </td>
+                     <td title="#{messages.email_msg}">
+                        ...
+                     </td>
+                 </tr>
+             </table>
+             <br />
+         </div>
+        </div>
+        <br />
+        <br />
+        <hr width="500px" align="left"/>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,104 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="layout/template.xhtml">
+
+    <ui:define name="head">
+        <meta name="language" content="English" />
+        <title>Memo - Home</title>
+    </ui:define>
+    <ui:define name="left">
+        <ui:include src="/left/lc.xhtml" />
+    </ui:define>
+    
+    <ui:define name="body">
+    <style>
+        .ui-widget-header {
+            background: transparent !important;
+            border: 0px;
+        }
+    </style>
+    <h:form id="formId">
+        <table>
+            <tr>
+                <td style="vertical-align: top; width: 50%;">
+                    <table>
+                        <tr>
+                            <td class="text_justify" >
+                                <span>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                                    Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                                    laboris nisi ut aliquip ex ea commodo consequat. 
+                                    Duis aute irure dolor in reprehenderit in voluptate 
+                                    velit esse cillum dolore eu fugiat nulla pariatur. 
+                                    Excepteur sint occaecat cupidatat non proident, 
+                                    sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                </span>
+                                <br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="5"></td>
+                        </tr>
+                    </table>
+                    <br />
+                    <div id="home_video" style="position: relative;">
+                        <div class="kh-video" >
+                            <object>
+                                <param name="movie" value="http://www.youtube.com/embed/HXvm76e2X1Q?feature=player_detailpage"/>
+                                <param name="allowFullScreen" value="true" />
+                                <param name="allowScriptAccess" value="always" />
+                                <param name="Menu" value="-1" />
+                                <param name="autohide" value="1" />
+                                <param name="controls" value="0" />
+                                <iframe height="175" frameborder="0" width="308"
+                                    src="http://www.youtube.com/embed/HXvm76e2X1Q?feature=player_detailpage"/>
+                            </object>
+                        </div>
+                    </div>
+                </td>
+                <td style="vertical-align: top">
+                    <h:panelGroup  styleClass="datalist">
+                        <p:dataList id="news_id" style="width: 350px;"
+                            value="#{homeBean.newsList}" var="e" 
+                            paginatorPosition="bottom"
+                            paginator="true" rows="5"  
+                            paginatorTemplate="{PreviousPageLink} {NextPageLink} "
+                            lazy="true" >
+                            <table class="hnt" style="clear: both; border-collapse: collapse;width: 100%;">
+                                <tr>
+                                    <td class="b">
+                                        <h:outputText value="#{e.start}" >
+                                            <f:convertDateTime pattern="dd.MM.yyyy."/>
+                                        </h:outputText>&#160;
+                                        <h:link outcome="k_news" >
+                                            <f:param name="newsId" value="#{e.id}" />
+                                            <h:outputText value="#{e.name}" styleClass="mc" />
+                                        </h:link>
+                                        <p:commandLink action="#{homeBean.viewNews(e.id)}"
+                                            process="@this" immediate="true">
+                                        </p:commandLink>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="width: 200px" class="text_justify">
+                                        <h:outputText value="#{e.shortDescription}" escape="false" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="height: 20px;"></td>
+                                </tr>
+                            </table>
+                        </p:dataList>
+                    </h:panelGroup>
+                </td>
+            </tr>
+        </table>
+    </h:form>
+    </ui:define>
+</ui:composition>

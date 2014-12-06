@@ -1,0 +1,37 @@
+<h:panelGroup xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:security="http://www.springframework.org/security/tags" >
+    <div class="k-header">
+        <h:form>
+            <p:menubar>  
+                <p:menuitem value="MEMOSOFT"
+                    onclick="window.location.href='#{facesContext.externalContext.requestContextPath}'" /> 
+                <p:submenu label="#{messages.menu_msg}" style="left: 217px; top: 0px;" >  
+                    <p:menuitem value="#{messages.WALL_MSG}"
+                        onclick="window.location.href='#{facesContext.externalContext.requestContextPath}/wall.k'" /> 
+                    <p:menuitem value="#{messages.contact_msg}"
+                        onclick="window.location.href='#{facesContext.externalContext.requestContextPath}/contact.k'" >
+                    </p:menuitem>
+                    <p:menuitem value="#{messages.my_account_msg}"
+                        onclick="window.location.href='#{facesContext.externalContext.requestContextPath}/pages/secure/my_account.k'" 
+                        rendered="#{identity.hasRole('ROLE_USER')}">
+                    </p:menuitem>
+                    <p:menuitem value="#{messages.admin_msg}"
+                        onclick="window.location.href='#{facesContext.externalContext.requestContextPath}/pages/admin/admin.k'" 
+                        rendered="#{identity.hasRole('ROLE_ADMIN')}" >
+                    </p:menuitem>
+                </p:submenu>  
+                <p:menuitem value="#{messages.sign_up_msg}"
+                    onclick="window.location.href='#{facesContext.externalContext.requestContextPath}/pages/public/registration.k'" rendered="#{!identity.loggedIn}"/> 
+                <p:menuitem value="#{messages.login_msg}" 
+                    onclick="window.location.href='#{facesContext.externalContext.requestContextPath}/login.k'" rendered="#{!identity.loggedIn}"/> 
+                <p:menuitem rendered="#{identity.loggedIn}" >
+                    <h:commandLink action="#{loginBean.logout()}" value="#{messages.logout_msg}" class="menu_item_h_link"/>
+                </p:menuitem> 
+            </p:menubar>
+        </h:form>
+    </div>
+</h:panelGroup>

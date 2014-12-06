@@ -1,0 +1,40 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/admin_template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+            <p:dataTable id="ut_id" value="#{userListBean.userList}" var="e"
+                rows="25" styleClass="b"
+                paginatorPosition="bottom"
+                paginator="true"
+                paginatorTemplate="{PreviousPageLink} {CurrentPageReport} {NextPageLink} {RowsPerPageDropdown}"  
+                rowsPerPageTemplate="25, 50, 100" 
+                lazy="true">
+                <p:column styleClass="tac" >
+                    <f:facet name="header">
+                        <h:outputText value="#{messages.id_msg}" />
+                    </f:facet>
+                    <h:link value="#{e.id}" outcome="/pages/admin/e_user.xhtml?userId=#{e.id}&amp;faces-redirect=true" title="#{messages.edit_msg}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{messages.k_name_msg}" />
+                    </f:facet>
+                    <h:link value="#{e.username}" outcome="/pages/admin/e_user.xhtml?userId=#{e.id}&amp;faces-redirect=true" title="#{messages.edit_msg}" />
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="#{messages.email_msg}" />
+                    </f:facet>
+                    <h:link value="#{e.email}" outcome="/pages/admin/e_user.xhtml?userId=#{e.id}&amp;faces-redirect=true" title="#{messages.edit_msg}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>

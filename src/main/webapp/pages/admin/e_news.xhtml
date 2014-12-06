@@ -1,0 +1,52 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/admin_template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+            <p:panel>
+                <f:facet name="header"></f:facet>
+                <h:commandButton value="#{messages.back_msg}" action="news" immediate="true"/>
+                <p:spacer width="10" />
+                <h:commandButton value="#{messages.save_msg}" action="#{editNewsBean.save()}" />
+                <br />
+                <table>
+                    <tr>
+                        <td>
+                            <h:outputText value="#{messages.start_msg}" />
+                        </td>
+                        <td>
+                            <p:calendar value="#{editNewsBean.news.start}"
+                                showWeeksBar="false" pattern="dd.MM.yyyy"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="#{messages.end_msg}" />
+                        </td>
+                        <td>
+                            <p:calendar value="#{editNewsBean.news.end}"
+                                showWeeksBar="false" pattern="dd.MM.yyyy"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="#{messages.active_msg}" />
+                        </td>
+                        <td>
+                            <h:selectBooleanCheckbox value="#{editNewsBean.news.active}" />
+                        </td>
+                    </tr>
+                </table>
+                <ui:include src="/pages/admin/k_translate.xhtml" >
+                    <ui:param name="item" value="#{editNewsBean.news}" />
+                </ui:include>
+            </p:panel>
+        </h:form>
+    </ui:define>
+</ui:composition>

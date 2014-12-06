@@ -1,0 +1,26 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:s="http://jboss.com/products/seam/taglib"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/template.xhtml">
+
+    <ui:define name="head">
+        <meta name="language" content="English" />
+        <title>Memo - Access Denied</title>
+    </ui:define>
+    <ui:define name="left">
+        <ui:include src="/layout/memo_logo.xhtml" />
+    </ui:define>
+    
+    <ui:define name="body">
+        <div style="position: relative;left: 50px;">
+        <span class="xr_s7">
+          <span class="xr_tl">You don have permission to access this content.</span>
+         </span>
+        </div>
+    </ui:define>
+</ui:composition>

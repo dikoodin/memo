@@ -1,0 +1,59 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/admin_template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+            <h:panelGroup id="comm_panel">
+                <p:dataTable id="ut_id" value="#{commentListBean.commentList}" 
+                    var="e" width="100%"
+                    paginator="true" rows="50"  lazy="true"
+                    paginatorTemplate="{FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                    rowsPerPageTemplate="10, 25, 50, 100" >
+                    <p:column styleClass="tac">
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.id_msg}" />
+                        </f:facet>
+                        <h:outputText value="#{e.id}" title="#{messages.id_msg}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.name_msg}" />
+                        </f:facet>
+                        <h:outputText value="#{e.name}" title="#{messages.name_msg}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.created_msg}" />
+                        </f:facet>
+                        <h:outputText value="#{e.created}" styleClass="gray">
+                            <f:convertDateTime pattern="dd.MM.yyyy HH:mm:ss"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.comment_msg}" />
+                        </f:facet>
+                        <h:outputText value="#{e.comment}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.do_msg}" />
+                        </f:facet>
+                        <p:commandLink action="#{commentListBean.approve(e.id)}"
+                            limitToList="true" update="@form, :messages"
+                            rendered="#{identity.admin}" immediate="true">
+                            <h:graphicImage value="#{e.approved ? '/img/cross.png' : '/img/tick.png'}"
+                                title="#{!e.approved ? messages.approve_msg : messages.block_msg}" />
+                        </p:commandLink>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>

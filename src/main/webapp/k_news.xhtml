@@ -1,0 +1,68 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="layout/template.xhtml">
+    
+    <ui:define name="head">
+        <meta name="language" content="English" />
+        <meta name="keywords" content="java, javaee, jsf, jsf 2, seam , spring, frameworks, programming, sql, mysql, sql mssql, postgresql, richfaces, icefaces, primefaces, jsp, servlets, serbia, kragujevac" />
+        <meta name="description" content="MemoSoft mission is to design, develop, deliver and support custom web solutions that specifically meet the exact needs of our clients." />
+        <meta name="Classification" content="Programming, java development, web development, javaee" />
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="2 month" />
+        <title>News</title>
+    </ui:define>
+    
+    <ui:define name="left">
+        <ui:include src="/left/lc_news.xhtml" />
+    </ui:define>
+    
+    <ui:define name="body">
+        <h:panelGroup id="news_panel" rendered="#{!viewNewsBean.error}">
+            <h:form>
+                <h:commandButton action="home?faces-redirect=true" process="@this" immediate="true" value="#{messages.home_msg}"/>
+                <div class="lstn" style="width: 100%;height: 100%;" >
+                    <table width="100%" >
+                        <tr>
+                            <td width="730px" >
+                                <table class="hnt" style="clear: both; border-collapse: collapse;">
+                                    <tr>
+                                        <td class="b" height="20" >
+                                            <h:outputText value="#{viewNewsBean.news.start}" >
+                                                <f:convertDateTime pattern="dd.MM.yyyy."/>
+                                            </h:outputText>&#160;
+                                            <h:outputText value="#{viewNewsBean.news.name}" styleClass="red" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="30" >
+                                            <h:graphicImage title="" alt="" value="/img/37.png" />
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="730px;">
+                                            <h:outputText value="#{viewNewsBean.news.desc}" escape="false" styleClass="text_justify"/>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="20" >
+                                            <h:graphicImage title="" alt="" value="/img/37.png" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </h:form>
+        </h:panelGroup>
+        <h:panelGroup rendered="#{viewNewsBean.error}">
+            <h:outputText value="#{messages.not_avb}" />&#160;
+            <a href="#" onclick="history.go(-1)">#{messages.back_msg}</a>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

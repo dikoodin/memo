@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>MEMOSOFT - ADMIN</title>
+        <link rel="canonical" href="http://memosoft.net" />
+        <h:outputStylesheet library="stylesheet" name="memo.css" />
+        <h:outputStylesheet library="css" name="xr_main.css" />
+        <h:outputStylesheet library="css" name="xr_text.css" />
+        <h:outputScript library="js" name="memo.js" />
+        <ui:insert name="head"/>
+    </h:head>
+    <h:body id="body_id" >
+        <div id="xr_xr" style="position:relative; width: 1280px; top:0px; margin: 0 auto;">
+            <h:panelGroup id="root_id">
+                <div id="xr_xri" class="xr_ap" style="width: 1280px;" >
+                  <ui:include src="/layout/menu.xhtml">
+                     <ui:param name="projectName" value="KVENDI"/>
+                  </ui:include>
+                      <table width="100%" class="h100">
+                          <tr>
+                              <td width="25%" class="lc" valign="top">
+                                <table width="100%">
+                                      <tr>
+                                          <td width="25%" class="lc" valign="top" >
+                                            <h:form>
+                                                 <table class="fs20 b tdn">
+                                                     <tr>
+                                                         <td>
+                                                             <h:link value="News" outcome="/pages/admin/news.xhtml" />
+                                                         </td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>
+                                                             <h:link value="Users" outcome="/pages/admin/users.xhtml" />
+                                                         </td>
+                                                     </tr>
+                                                     <tr>
+                                                         <td>
+                                                             <h:link value="Comments" outcome="/pages/admin/comments.xhtml" />
+                                                         </td>
+                                                     </tr>
+                                                 </table>
+                                             </h:form>
+                                          </td>
+                                          <td valign="top" >
+                                            <div class="body">
+                                                 <h:panelGroup id="messages">
+                                                    <h:messages id="msg"
+                                                        styleClass="message" errorClass="errormsg" infoClass="infomsg"
+                                                        warnClass="warnmsg" />
+                                                </h:panelGroup>
+                                                <ui:insert name="body"/>
+                                            </div>
+                                          </td>
+                                      </tr>
+                                  </table>
+                              </td>
+                        </tr>
+                      </table>
+                  <ui:include src="/layout/footer.xhtml" />
+                </div>
+            </h:panelGroup>
+        </div>
+    </h:body>
+</html>

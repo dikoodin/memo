@@ -1,0 +1,32 @@
+<h:panelGroup xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui">
+
+    <table>
+        <tr>
+            <td>
+                <h:outputText value="#{messages.name_msg}" />
+                <span class="m">*</span>
+            </td>
+            <td>
+                <h:inputText value="#{item.name}" required="true"
+                    readonly="#{empty readonly ? false : readonly}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <h:outputText value="#{messages.desc_msg}" />
+                <h:panelGroup rendered="#{desc_required}">
+                    <span class="m">*</span>
+                </h:panelGroup>
+            </td>
+            <td>
+                <h:inputTextarea value="#{item.desc}" cols="40" rows="5">
+                    <f:validateLength maximum="255" />
+                </h:inputTextarea>
+            </td>
+        </tr>
+    </table>
+</h:panelGroup>

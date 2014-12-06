@@ -1,0 +1,64 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/admin_template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+            <h:panelGroup styleClass="b">
+                <h:commandButton value="#{messages.add_msg}" action="e_news" immediate="true"/>
+                <p:dataTable id="ut_id" value="#{newsBean.newsList}" var="e">
+                    <p:column styleClass="tac">
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.id_msg}" />
+                        </f:facet>
+                        <h:link outcome="/pages/admin/e_news.xhtml?newsId=#{e.id}"
+                            value="#{e.id}" title="#{messages.edit_msg}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.name_msg}" />
+                        </f:facet>
+                        <h:link outcome="/pages/admin/e_news.xhtml?newsId=#{e.id}"
+                            value="#{e.name}" title="#{messages.edit_msg}" />
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.start_msg}" />
+                        </f:facet>
+                           <h:outputText value="#{e.start}" >
+                               <f:convertDateTime pattern="dd.MM.yyyy"/>
+                           </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.end_msg}" />
+                        </f:facet>
+                           <h:outputText value="#{e.end}" >
+                               <f:convertDateTime pattern="dd.MM.yyyy"/>
+                           </h:outputText>
+                    </p:column>
+                    <p:column>
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.active_msg}" />
+                        </f:facet>
+                           <h:selectBooleanCheckbox value="#{e.active}" disabled="true" />
+                    </p:column>
+                    <p:column styleClass="tac">
+                        <f:facet name="header">
+                            <h:outputText value="#{messages.do_msg}" />
+                        </f:facet>
+                        <p:commandLink action="#{newsBean.delete(e)}" update="@form" 
+                            onclick="return confirm('#{messages.confirm_action_msg}')">
+                            <h:graphicImage value="/img/cross.png" title="#{messages.delete_msg}" />
+                        </p:commandLink>
+                    </p:column>
+                </p:dataTable>
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>

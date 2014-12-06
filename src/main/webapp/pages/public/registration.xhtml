@@ -1,0 +1,96 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+    template="/layout/template.xhtml">
+
+    <ui:define name="left">
+        <ui:include src="/layout/memo_logo.xhtml" />
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form>
+            <table>
+                <tr>
+                    <td>
+                        <h:outputText value="#{messages.username_msg}" />
+                        <h:outputText value="*" styleClass="m" />
+                    </td>
+                    <td>
+                        <h:inputText value="#{registrationBean.username}"
+                            required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><h:outputText value="#{messages.password_msg}" />
+                        <h:outputText value="*" styleClass="m" /></td>
+                    <td><h:inputSecret value="#{registrationBean.password}"
+                            required="true" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText value="#{messages.confirm_password_msg}" />
+                        <h:outputText value="*" styleClass="m" />
+                    </td>
+                    <td>
+                        <h:inputSecret value="#{registrationBean.confirmPassword}"
+                            required="true" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText value="#{messages.email_msg}" />
+                        <h:outputText value="*" styleClass="m" />
+                    </td>
+                    <td>
+                        <h:inputText id="email" required="true"
+                            requiredMessage="Please enter your email address."
+                            value="#{registrationBean.email}" >
+                            <f:validator validatorId="emailValidator"/>
+                        </h:inputText>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText value="#{messages.firstname_msg}"
+                            required="true" />
+                        <h:outputText value="*" styleClass="m" />
+                    </td>
+                    <td><h:inputText value="#{registrationBean.firstname}" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText value="#{messages.lastname_msg}" />
+                        <h:outputText value="*" styleClass="m" />
+                    </td>
+                    <td><h:inputText value="#{registrationBean.lastname}"
+                            required="true" /></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h:outputText value="#{messages.accept_terms_msg}" />
+                        <h:outputText value="*" styleClass="m" />
+                    </td>
+                    <td>
+                        <h:selectBooleanCheckbox value="#{registrationBean.acceptTerms}" required="true" />
+                        &#160; 
+                        <a href="#{facesContext.externalContext.requestContextPath}/k_terms.k" target="blank_">
+                            <h:outputText value="#{messages.terms_of_use_msg}" />
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <table>
+                <tr>
+                    <td>
+                        <h:commandButton action="#{registrationBean.save()}"
+                            value="#{messages.register_msg}" />
+                    </td>
+                </tr>
+            </table>
+        </h:form>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,31 @@
+<h:panelGroup
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <table class="h100" style="width:100%">
+        <tr>
+            <td valign="top" align="center">
+                <ui:include src="/layout/memo_logo.xhtml" />
+            </td>
+        </tr>
+        <tr>
+            <td  valign="top" align="center" style="padding-top: 60%;" >
+                <table style="clear: both; border-collapse: collapse;">
+                    <tr>
+                        <td valign="top" class="lc_message">
+                            <h:panelGroup rendered="#{single}">
+                                Who is this guy?
+                            </h:panelGroup>
+                            <h:panelGroup rendered="#{!single}">
+                                Who are those guys?
+                            </h:panelGroup>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</h:panelGroup>

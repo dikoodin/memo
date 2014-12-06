@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:ui="http://java.sun.com/jsf/facelets"
+   xmlns:f="http://java.sun.com/jsf/core"
+   xmlns:h="http://java.sun.com/jsf/html"
+   xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <ui:insert name="head"/>
+        <link rel="canonical" href="http://memosoft.net" />
+        <h:outputStylesheet library="stylesheet" name="memo-theme.xcss" />
+        <h:outputStylesheet library="stylesheet" name="memo-theme.css" />
+        <h:outputStylesheet library="stylesheet" name="memo.css" />
+        <h:outputStylesheet library="css" name="xr_main.css" />
+        <h:outputStylesheet library="css" name="xr_text.css" />
+
+        <h:outputScript library="js" name="memo.js" />
+
+    </h:head>
+    <h:body id="body_id" >
+        <div id="xr_xr" style="position:relative; width: 1280px; top:0px; margin: 0 auto;">
+            <h:panelGroup id="root_id">
+                <div id="xr_xri" class="xr_ap" style="width: 1280px; " >
+                    <ui:include src="/layout/menu.xhtml">
+                        <ui:param name="projectName" value="MemoSoft"/>
+                    </ui:include>
+                    <table style="width: 100%" class="h100">
+                        <tr>
+                            <td style="width:25%;vertical-align: top;float: center;" class="lc">
+                                <ui:insert name="left"/>
+                            </td>
+                            <td valign="top">
+                                <div class="body">
+                                    <h:panelGroup id="messages" layout="block">
+                                        <h:messages id="msg"
+                                            styleClass="message" errorClass="errormsg" infoClass="infomsg"
+                                            warnClass="warnmsg" />
+                                    </h:panelGroup>
+                                    <ui:insert name="body" />
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <ui:include src="/layout/footer.xhtml" />
+                </div>
+            </h:panelGroup>
+        </div>
+    </h:body>
+</html>

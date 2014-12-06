@@ -1,0 +1,49 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="layout/template.xhtml">
+   
+    <ui:define name="left">
+        <ui:include src="/layout/memo_logo.xhtml" />
+    </ui:define>
+
+    <ui:define name="body">
+        <h:form id="formId">
+            <div style="text-align:center;">
+                <table>
+                    <tr>
+                        <td colspan="2">
+                            <h:outputText value="#{messages.login_msg}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="#{messages.username_msg}" />
+                        </td>
+                        <td>
+                            <h:inputText value="#{loginBean.username}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h:outputText value="#{messages.password_msg} " />
+                        </td>
+                        <td>
+                            <h:inputSecret value="#{loginBean.password}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td align="left">
+                            <h:commandButton action="#{loginBean.login}" value="#{messages.login_msg}" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>

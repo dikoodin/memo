@@ -1,0 +1,123 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:c="http://java.sun.com/jstl/core"
+    template="layout/template.xhtml">
+
+    <ui:define name="head">
+        <meta name="language" content="English" />
+        <title>Memo - Wall</title>
+    </ui:define>
+    
+    <ui:define name="left">
+        <ui:include src="left/lc_hmm.xhtml" />
+    </ui:define>
+    
+    <ui:define name="body">
+        <style>
+            #comments_form .ui-widget-content {
+                background: transparent;
+                border: 0px;
+            }
+            #comments_form .ui-widget-content td {
+                border: 0px;
+            }
+            #comments_form thead {
+                display: none;
+            }
+            .ui-widget-header {
+                background: transparent !important;
+                border: 0px;
+            }
+            .comment_column {
+                vertical-align: top;
+                padding-left: 10px;
+                padding-top: 4px;
+                border:0px;
+            }
+        </style>
+        <h:form>
+            <p:poll id="poll" interval="60" 
+                    update=":body_id" listener="#{wallBean.loadComments()}" />
+        </h:form>
+        <h:panelGroup id="comment_panel">
+            <h:form id="comments_form">
+                <h:panelGroup id="comm_panel" styleClass="no_border">
+                    <h:outputText value="#{messages.comments_msg}: " styleClass="b"/>&#160;
+                    <h:outputText value="#{wallBean.commentList.rowCount}" styleClass="red b"/>
+                    <p:dataTable id="comments_" value="#{wallBean.commentList}" var="e" style="width:450px !important;"
+                        paginatorPosition="bottom"
+                        paginator="true" rows="10"  
+                        paginatorTemplate="{PreviousPageLink} {NextPageLink}"  
+                        rowsPerPageTemplate="5,10,15" 
+                        lazy="true" >
+                        <p:column style="width:450px;" >
+                            <table style="width:100%" >
+                                <tr>
+                                    <td class="comment_column">
+                                        <h:outputText value="#{e.name}" styleClass="b"/>&nbsp;
+                                        <h:outputText value="#{e.comment}" />
+                                        <div style="height: 4px;clear: both;"></div>
+                                        <h:outputText value="#{e.created}" styleClass="gray">
+                                            <f:convertDateTime pattern="dd.MM.yyyy HH:mm"/>
+                                        </h:outputText>
+                                    </td>
+                                </tr>
+                            </table>
+                        </p:column>
+                    </p:dataTable>
+                </h:panelGroup>
+            </h:form>
+            <br />
+            <hr style="width: 500px;float: left"/>
+            <h:form id="add_form">
+                <table style="clear: both;float: left;">
+                    <tr>
+                        <td style="height: 20px"></td>
+                    </tr>
+                    <tr>
+                        <td class="b" style="width:80px;">
+                            <h:outputLabel value="#{messages.name_msg}" for="name_" />
+                            <span class="m">&nbsp;*</span>
+                        </td>
+                        <td>
+                            <h:inputText id="name_" value="#{wallBean.name}" required="true"
+                                size="40" maxlength="100" label="#{messages.name_msg}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="10px"></td>
+                    </tr>
+                    <tr>
+                        <td class="b top">
+                            <h:outputLabel value="#{messages.comment_msg}" for="comment_" />
+                            <span class="m">&nbsp;*</span>
+                        </td>
+                        <td>
+                            <h:inputTextarea id="comment_" value="#{wallBean.comment}" 
+                                label="#{messages.comment_msg}"
+                                required="true" cols="40" rows="5">
+                                <f:validateLength maximum="255" />
+                            </h:inputTextarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="10px"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <p:commandButton action="#{wallBean.addComment()}"
+                                value="#{messages.send_msg}" 
+                                update=":comment_panel :messages" />
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

@@ -1,0 +1,106 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/template.xhtml">
+
+    <ui:define name="left">
+        <ui:include src="/left/lc_who.xhtml" >
+            <ui:param name="single" value="#{true}" />
+        </ui:include>
+    </ui:define>
+    
+    <ui:define name="body">
+        <h:panelGroup id="myacc_panel">
+            <h:form id="my_account_form">
+                <table>
+                    <tr>
+                        <td>
+                            <table style="padding: 5px; border-spacing: 5px;">
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.username_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{myAccount.accountData.username}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.email_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{myAccount.accountData.email}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.firstname_msg}" required="true"/>
+                                        <h:outputText value="*" styleClass="m" />
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{myAccount.accountData.firstname}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.lastname_msg}" />
+                                        <h:outputText value="*" styleClass="m" />
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{myAccount.accountData.lastname}" required="true"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.address_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{myAccount.accountData.address}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.tel_msg}" />
+                                        <h:outputText value="*" styleClass="m" />
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{myAccount.accountData.tel}" required="true"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.mob_msg}" />
+                                        <h:outputText value="*" styleClass="m" />
+                                    </td>
+                                    <td>
+                                        <h:inputText value="#{myAccount.accountData.mob}" required="true"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.birthday_msg}" />
+                                        <h:outputText value="*" styleClass="m" />
+                                    </td>
+                                    <td>
+                                        <p:calendar value="#{myAccount.accountData.birthday}" required="true" 
+                                            showWeeksBar="false" pattern="dd.MM.yyyy" />
+                                    </td>
+                                </tr>
+                               </table>
+                               <br />
+                            <p:commandButton id="save_id" action="#{myAccount.save()}" 
+                                value="#{messages.save_msg}" 
+                                update="@form :messages" >
+                            </p:commandButton>
+                            <p:defaultCommand target="save_id" />  
+                        </td>
+                    </tr>
+                </table>
+            </h:form>
+        </h:panelGroup>
+    </ui:define>
+</ui:composition>

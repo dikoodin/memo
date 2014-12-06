@@ -1,0 +1,92 @@
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    template="/layout/admin_template.xhtml">
+
+    <ui:define name="body">
+        <h:form>
+               <f:facet name="header"></f:facet>
+            <h:commandButton value="#{messages.back_msg}" action="users?faces-redirect=true" immediate="true" process="@this"/>
+            <h:panelGroup id="user_panel">
+                <table>
+                    <tr>
+                        <td>
+                            <table style="padding: 5px;border-spacing: 5px;">
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.k_name_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.username}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.email_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.email}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.firstname_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.firstname}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.lastname_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.lastname}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.address_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.address}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.tel_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.tel}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.mob_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.mob}" />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h:outputText value="#{messages.birthday_msg}" />
+                                    </td>
+                                    <td>
+                                        <h:outputText value="#{userBean.user.birthday}" >
+                                            <f:convertDateTime pattern="dd.MM.yyyy" />
+                                        </h:outputText>
+                                    </td>
+                                </tr>
+                               </table>
+                        </td>
+                    </tr>
+                </table>
+            </h:panelGroup>
+        </h:form>
+    </ui:define>
+</ui:composition>
