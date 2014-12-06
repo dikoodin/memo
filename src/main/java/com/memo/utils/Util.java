@@ -1,7 +1,6 @@
 package com.memo.utils;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
@@ -21,9 +20,9 @@ public class Util {
         if (Util.isEmpty(key)) {
             throw new NullPointerException("Key must not be null!");
         }
-        byte[] defaultBytes = key.getBytes();
         String cripted = null;
         try {
+            byte[] defaultBytes = key.getBytes("UTF-8");
             MessageDigest algorithm = MessageDigest.getInstance("MD5");
             algorithm.reset();
             algorithm.update(defaultBytes);
@@ -34,8 +33,8 @@ public class Util {
                 hexString.append(Integer.toHexString(0xFF & messageDigest[i]));
             }
             cripted = hexString + "";
-        } catch (NoSuchAlgorithmException nsae) {
-            nsae.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return cripted;
     }
