@@ -169,18 +169,8 @@
         <!-- Primefaces Theme -->
         <dependency>
             <groupId>org.primefaces.themes</groupId>
-            <artifactId>flick</artifactId>
-            <version>1.0.8</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
             <artifactId>casablanca</artifactId>
             <version>1.0.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.primefaces.themes</groupId>
-            <artifactId>flick</artifactId>
-            <version>1.0.8</version>
         </dependency>
 
         <!-- el-impl -->
