@@ -1,27 +1,83 @@
 package com.memo.entity;
 
-import com.memo.base.Base;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-public interface Comment extends Base {
 
-    public Long getUserId();
+@Entity
+@Table(name = "comments")
+public class Comment extends BaseEntity {
 
-    public void setUserId(Long userId);
+    /**
+     *
+     */
+    private static final long serialVersionUID = 8151958106131080310L;
 
-    public boolean isApproved();
+    private Long userId;
 
-    public void setApproved(boolean approved);
+    private String name;
+    private boolean approved;
+    private String comment;
+    private Long approvedBy;
 
-    public String getName();
+    public Comment() {
+        super();
+    }
 
-    public void setName(String name);
+    public Comment(String name, String comment) {
+        this.name = name;
+        this.comment = comment;
+    }
 
-    public String getComment();
+    public Comment(Long userId, String name, String comment) {
+        this(name, comment);
+        this.userId = userId;
+    }
 
-    public void setComment(String comment);
+    @Column(name = "user_id", updatable = false)
+    public Long getUserId() {
+        return userId;
+    }
 
-    public Long getApprovedBy();
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 
-    public void setApprovedBy(Long approvedBy);
+    @Column(name = "approved", nullable = false)
+    public boolean isApproved() {
+        return approved;
+    }
+
+    public void setApproved(boolean approved) {
+        this.approved = approved;
+    }
+
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Column(name = "comment", nullable = false)
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    @Column(name = "approved_by")
+    public Long getApprovedBy() {
+        return approvedBy;
+    }
+
+    public void setApprovedBy(Long approvedBy) {
+        this.approvedBy = approvedBy;
+    }
 
 }

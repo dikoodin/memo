@@ -1,7 +1,5 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -16,12 +14,12 @@ import com.memo.utils.Component;
 
 @ViewScoped
 @ManagedBean(name = "homeBean")
-public class HomeBean extends ViewMsgBean implements Serializable {
+public class HomeBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = 2066556966063117603L;
+    private static final long serialVersionUID = 6574989456829296432L;
 
     @ManagedProperty(value = "#{newsDataProviderImpl}")
     private DataProvider<NewsModel> newsDataProvider;

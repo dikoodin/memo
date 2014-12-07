@@ -1,25 +1,22 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import com.memo.entity.News;
-import com.memo.entity.NewsEntity;
 import com.memo.service.NewsService;
 import com.memo.utils.Component;
 
 @ManagedBean(name = "editNewsBean")
 @ViewScoped
-public class EditNewsBean extends ViewMsgBean implements Serializable {
+public class EditNewsBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -4184026689307942094L;
+    private static final long serialVersionUID = 8698280689138322494L;
 
     @ManagedProperty("#{newsServiceImpl}")
     protected NewsService newsService;
@@ -33,7 +30,7 @@ public class EditNewsBean extends ViewMsgBean implements Serializable {
             if (newsId != null && newsId > 0) {
                 news = newsService.find(newsId);
             } else {
-                news = new NewsEntity();
+                news = new News();
             }
         } catch (Exception e) {
             e.printStackTrace();

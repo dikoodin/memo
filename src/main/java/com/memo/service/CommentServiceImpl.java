@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.memo.dao.CommentDAO;
 import com.memo.entity.Comment;
-import com.memo.entity.CommentEntity;
 import com.memo.entity.User;
 
 @Service
@@ -31,7 +30,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Transactional(readOnly = true)
     public Comment find(Long commentId) {
-        return commentDAO.find(commentId, CommentEntity.class);
+        return commentDAO.find(commentId, Comment.class);
     }
 
     @Transactional
@@ -44,7 +43,7 @@ public class CommentServiceImpl implements CommentService {
     }
 
     protected Comment create(String name, String comment) {
-        return new CommentEntity(name, comment);
+        return new Comment(name, comment);
     }
 
 }

@@ -1,7 +1,5 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -18,12 +16,12 @@ import com.memo.utils.Util;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
-public class LoginBean extends ViewMsgBean implements Serializable {
+public class LoginBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -2185101480769225932L;
+    private static final long serialVersionUID = 2645496132211899854L;
 
     private String username;
     private String password;

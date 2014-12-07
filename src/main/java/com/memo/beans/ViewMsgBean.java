@@ -1,18 +1,16 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import com.memo.interpolator.MessageInterpolator;
 
-public abstract class ViewMsgBean extends AbstractBean implements Serializable {
+public abstract class ViewMsgBean extends AbstractBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -4461462161814441971L;
+    private static final long serialVersionUID = 2991065028090445105L;
 
     public void success() {
         addMessage("success_msg", FacesMessage.SEVERITY_INFO);

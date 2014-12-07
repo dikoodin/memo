@@ -1,10 +1,15 @@
-package com.memo.base;
+package com.memo.entity;
 
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Version;
 
 @MappedSuperclass
 public abstract class VersionEntity extends BaseEntity {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3402583274035014342L;
 
     private long version;
 

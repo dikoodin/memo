@@ -9,7 +9,7 @@ public class NewsModel implements Model {
     /**
      *
      */
-    private static final long serialVersionUID = -7642605358448921205L;
+    private static final long serialVersionUID = 71761168197936334L;
 
     private Long id;
     private Date start;
@@ -25,8 +25,8 @@ public class NewsModel implements Model {
 
     public NewsModel(Builder builder) {
         this.id = builder.id;
-        this.start = builder.start;
-        this.end = builder.end;
+        this.start = builder.start == null ? null : new Date(builder.start.getTime());
+        this.end = builder.end == null ? null : new Date(builder.end.getTime());
         this.active = builder.active;
         this.shortDescription = builder.shortDescription;
         this.name = builder.name;
@@ -38,11 +38,11 @@ public class NewsModel implements Model {
     }
 
     public Date getStart() {
-        return start;
+        return start == null ? null : new Date(start.getTime());
     }
 
     public Date getEnd() {
-        return end;
+        return end == null ? null : new Date(end.getTime());
     }
 
     public boolean isActive() {
@@ -82,12 +82,12 @@ public class NewsModel implements Model {
         }
 
         public Builder start(Date start) {
-            this.start = start;
+            this.start = start == null ? null : new Date(start.getTime());;
             return this;
         }
 
         public Builder end(Date end) {
-            this.end = end;
+            this.end = end == null ? null : new Date(end.getTime());;
             return this;
         }
 

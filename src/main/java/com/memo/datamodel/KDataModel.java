@@ -18,7 +18,7 @@ public class KDataModel<E extends Model> extends LazyDataModel<E> implements
     /**
      *
      */
-    private static final long serialVersionUID = -6929477453431395795L;
+    private static final long serialVersionUID = 6099638652713644702L;
 
     private String dataTableId;
     private DataProvider<E> dataProvider;

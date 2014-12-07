@@ -21,7 +21,8 @@ import com.memo.utils.Const;
 @Service("userDetailsService")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    private HashMap<String, org.springframework.security.core.userdetails.User> users = new HashMap<String, org.springframework.security.core.userdetails.User>();
+    private HashMap<String, org.springframework.security.core.userdetails.User> users =
+            new HashMap<String, org.springframework.security.core.userdetails.User>();
 
     @Autowired
     private UserDAO userDAO;
@@ -41,8 +42,9 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if (kuser.isAdmin()) {
             adminAuthorities.add(new GrantedAuthorityImpl(Const.ROLE_ADMIN));
         }
-        org.springframework.security.core.userdetails.User user = new org.springframework.security.core.userdetails.User(
-                username, kuser.getPassword(), adminAuthorities);
+        org.springframework.security.core.userdetails.User user =
+                new org.springframework.security.core.userdetails.User(username,
+                        kuser.getPassword(), adminAuthorities);
 
         return user;
     }

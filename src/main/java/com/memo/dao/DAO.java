@@ -10,7 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.memo.base.Base;
+import com.memo.entity.BaseEntity;
 import com.memo.utils.Util;
 
 public abstract class DAO {
@@ -34,7 +34,7 @@ public abstract class DAO {
 
     @SuppressWarnings("unchecked")
     @Transactional(readOnly = true)
-    public <E extends Base> E find(Object id, Class<?> clazz) {
+    public <E extends BaseEntity> E find(Object id, Class<?> clazz) {
         try {
             return (E) getEntityManager().find(clazz, id);
         } catch (PersistenceException e) {
@@ -63,16 +63,16 @@ public abstract class DAO {
         entityManager.refresh(entity);
     }
 
-    public void delete(Base base) {
+    public void delete(BaseEntity base) {
         if (base == null) {
             LOG.error("Call indsert with null.");
             return;
         }
-        base = (Base) merge(base);
+        base = (BaseEntity) merge(base);
         remove(base);
     }
 
-    public void insert(Base base) {
+    public void insert(BaseEntity base) {
         if (base == null) {
             LOG.error("Call insert with null.");
             return;
@@ -81,7 +81,7 @@ public abstract class DAO {
         persist(base);
     }
 
-    public Base update(Base base) {
+    public BaseEntity update(BaseEntity base) {
         if (base == null) {
             LOG.error("Call update with null.");
             return null;
@@ -92,7 +92,7 @@ public abstract class DAO {
         } else {
             base.setModified(moment);
         }
-        base = (Base) merge(base);
+        base = (BaseEntity) merge(base);
         return base;
     }
 

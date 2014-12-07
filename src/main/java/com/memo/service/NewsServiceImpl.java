@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.memo.dao.NewsDAO;
 import com.memo.entity.News;
-import com.memo.entity.NewsEntity;
 
 @Service
 @Transactional
@@ -24,7 +23,7 @@ public class NewsServiceImpl implements NewsService {
 
     @Transactional(readOnly = true)
     public News find(Long newsId) {
-        return newsDAO.find(newsId, NewsEntity.class);
+        return newsDAO.find(newsId, News.class);
     }
 
     public News update(News news) {

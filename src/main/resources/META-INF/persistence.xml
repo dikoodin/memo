@@ -7,9 +7,9 @@
         transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-        <class>com.memo.entity.UserEntity</class>
-        <class>com.memo.entity.NewsEntity</class>
-        <class>com.memo.entity.CommentEntity</class>
+        <class>com.memo.entity.User</class>
+        <class>com.memo.entity.News</class>
+        <class>com.memo.entity.Comment</class>
 
         <properties>
             <property name="dialect"

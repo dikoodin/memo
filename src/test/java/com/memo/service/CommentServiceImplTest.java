@@ -8,10 +8,7 @@ import org.testng.annotations.Test;
 
 import com.memo.dao.CommentDAO;
 import com.memo.entity.Comment;
-import com.memo.entity.CommentEntity;
 import com.memo.entity.User;
-import com.memo.entity.UserEntity;
-import com.memo.service.CommentServiceImpl;
 
 public class CommentServiceImplTest {
 
@@ -29,7 +26,7 @@ public class CommentServiceImplTest {
     public void whenCommentExistsThenFindShouldReturnComment() {
         // GIVEN
         Long commentId = 1L;
-        Comment entity = new CommentEntity();
+        Comment entity = new Comment();
         entity.setId(commentId);
         Mockito.when(commentDAO.find(Matchers.anyLong(),
                 Matchers.any(Class.class))).thenReturn(entity);
@@ -44,7 +41,7 @@ public class CommentServiceImplTest {
     @Test
     public void whenCommentExistsThenGetLastShouldReturnComment() {
         // GIVEN
-        Comment entity = new CommentEntity();
+        Comment entity = new Comment();
         entity.setId(1L);
         Mockito.when(commentDAO.getLast()).thenReturn(entity);
 
@@ -61,7 +58,7 @@ public class CommentServiceImplTest {
         String name = "a";
         String comment = "b";
         Comment entity = Mockito.mock(Comment.class);
-        User user = new UserEntity();
+        User user = new User();
         Mockito.doReturn(entity).when(service).create(Matchers.anyString(),
                 Matchers.anyString());
 

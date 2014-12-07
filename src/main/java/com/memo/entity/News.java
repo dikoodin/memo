@@ -2,28 +2,83 @@ package com.memo.entity;
 
 import java.util.Date;
 
-import com.memo.base.VersionBase;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-public interface News extends VersionBase {
 
-    public Date getStart();
+@Entity
+@Table(name = "news")
+public class News extends VersionEntity {
 
-    public void setStart(Date start);
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3871402249959064921L;
 
-    public Date getEnd();
+    private Date start;
+    private Date end;
+    private boolean active;
+    private String name = "";
+    private String desc = "";
 
-    public void setEnd(Date end);
+    public News() {
+        super();
+    }
 
-    public boolean isActive();
+    public News(Date start, Date end, boolean active) {
+        this.start = start;
+        this.end = end;
+        this.active = active;
+    }
 
-    public void setActive(boolean active);
+    @Column(name = "name")
+    public String getName() {
+        return name;
+    }
 
-    public String getName();
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void setName(String name);
+    @Column(name = "description")
+    public String getDesc() {
+        return desc;
+    }
 
-    public String getDesc();
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
-    public void setDesc(String desc);
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "startdate")
+    public Date getStart() {
+        return start == null ? null : new Date(start.getTime());
+    }
+
+    public void setStart(Date start) {
+        this.start = start == null ? null : new Date(start.getTime());;
+    }
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "enddate")
+    public Date getEnd() {
+        return end == null ? null : new Date(end.getTime());
+    }
+
+    public void setEnd(Date end) {
+        this.end = end == null ? null : new Date(end.getTime());;
+    }
+
+    @Column(name = "active_")
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
 }

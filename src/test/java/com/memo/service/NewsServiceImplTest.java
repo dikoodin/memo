@@ -15,7 +15,6 @@ import org.testng.annotations.Test;
 
 import com.memo.dao.NewsDAO;
 import com.memo.entity.News;
-import com.memo.entity.NewsEntity;
 
 public class NewsServiceImplTest {
 
@@ -36,7 +35,7 @@ public class NewsServiceImplTest {
     public void whenNewsExistsThenGetAllShouldReturnNews() {
         // GIVEN
         List<News> news = new ArrayList<News>();
-        News entity = new NewsEntity();
+        News entity = new News();
         entity.setId(1L);
         news.add(entity);
         Query query = Mockito.mock(Query.class);
@@ -56,7 +55,7 @@ public class NewsServiceImplTest {
     @Test
     public void whenNewsExistsThenFindShouldReturnEntity() {
         // GIVEN
-        Mockito.when(em.find(Matchers.any(Class.class), Matchers.any())).thenReturn(new NewsEntity());
+        Mockito.when(em.find(Matchers.any(Class.class), Matchers.any())).thenReturn(new News());
         Long newsId = 123L;
 
         // WHEN

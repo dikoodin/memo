@@ -1,7 +1,5 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -20,12 +18,12 @@ import com.memo.utils.Component;
 
 @ViewScoped
 @ManagedBean(name = "commentListBean")
-public class CommentListBean extends ViewMsgBean implements Serializable {
+public class CommentListBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -3111988099407754250L;
+    private static final long serialVersionUID = -3951904254650926411L;
 
     public static final String TABEL_ID = "ut_id";
 

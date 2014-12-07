@@ -2,57 +2,173 @@ package com.memo.entity;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.persistence.UniqueConstraint;
+
 import com.memo.account.AccountData;
-import com.memo.base.VersionBase;
 
-public interface User extends VersionBase {
+@Entity
+@Table(name = "users", uniqueConstraints = {
+        @UniqueConstraint(columnNames = { "email" }),
+        @UniqueConstraint(columnNames = { "username" }) })
+public class User extends VersionEntity {
 
-    public String getUsername();
+    /**
+     *
+     */
+    private static final long serialVersionUID = -7793142160309960461L;
 
-    public void setUsername(String username);
+    private String username;
+    private String password;
+    private String email;
 
-    public String getPassword();
+    private String firstname;
+    private String lastname;
+    private String address;
 
-    public void setPassword(String password);
+    private String tel;
+    private String mob;
 
-    public String getEmail();
+    private Date birthday;
 
-    public void setEmail(String email);
+    private boolean admin;
+    private boolean acceptedTerms;
 
-    public String getFirstname();
+    public User() {
+        super();
+    }
 
-    public void setFirstname(String firstname);
+    public User(String username, String password, String email, String firstname,
+            String lastname, String address, String tel, String mob, Date birthday) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.address = address;
+        this.tel = tel;
+        this.mob = mob;
+        this.birthday = birthday;
+    }
 
-    public String getLastname();
+    @Column(name = "username", nullable = false)
+    public String getUsername() {
+        return username;
+    }
 
-    public void setLastname(String lastname);
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-    public String getAddress();
+    @Column(name = "password", nullable = false)
+    public String getPassword() {
+        return password;
+    }
 
-    public void setAddress(String address);
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-    public String getTel();
+    @Column(name = "email", nullable = false)
+    public String getEmail() {
+        return email;
+    }
 
-    public void setTel(String tel);
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-    public String getMob();
+    @Column(name = "firstname", nullable = false)
+    public String getFirstname() {
+        return firstname;
+    }
 
-    public void setMob(String mob);
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-    public Date getBirthday();
+    @Column(name = "lastname", nullable = false)
+    public String getLastname() {
+        return lastname;
+    }
 
-    public void setBirthday(Date birthday);
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
-    public boolean isAdmin();
+    @Column(name = "address")
+    public String getAddress() {
+        return address;
+    }
 
-    public void setAdmin(boolean admin);
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-    public boolean isAcceptedTerms();
+    @Column(name = "tel")
+    public String getTel() {
+        return tel;
+    }
 
-    public void setAcceptedTerms(boolean acceptedTerms);
+    public void setTel(String tel) {
+        this.tel = tel;
+    }
 
-    public void updateData(AccountData data);
+    @Column(name = "mob")
+    public String getMob() {
+        return mob;
+    }
 
-    public String getFullName();
+    public void setMob(String mob) {
+        this.mob = mob;
+    }
+
+    @Column(name = "birthday")
+    @Temporal(TemporalType.DATE)
+    public Date getBirthday() {
+        return birthday == null ? null : new Date(birthday.getTime());
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday == null ? null : new Date(birthday.getTime());
+    }
+
+    @Column(name = "admin")
+    public boolean isAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    @Column(name = "accepted_terms", nullable = false)
+    public boolean isAcceptedTerms() {
+        return acceptedTerms;
+    }
+
+    public void setAcceptedTerms(boolean acceptedTerms) {
+        this.acceptedTerms = acceptedTerms;
+    }
+
+    @Transient
+    public String getFullName() {
+        return firstname + " " + lastname;
+    }
+
+    @Transient
+    public void updateData(AccountData data) {
+        this.firstname = data.getFirstname();
+        this.lastname = data.getLastname();
+        this.address = data.getAddress();
+        this.tel = data.getTel();
+        this.mob = data.getMob();
+        this.birthday = data.getBirthday();
+    }
 
 }

@@ -1,25 +1,22 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
 import com.memo.entity.User;
-import com.memo.entity.UserEntity;
 import com.memo.service.UserService;
 import com.memo.utils.Util;
 
 @ManagedBean(name = "registrationBean")
 @ViewScoped
-public class RegistrationBean extends ViewMsgBean implements Serializable {
+public class RegistrationBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -5307825474425830753L;
+    private static final long serialVersionUID = -2017358792977647621L;
 
     @ManagedProperty("#{userServiceImpl}")
     private UserService userService;
@@ -91,7 +88,7 @@ public class RegistrationBean extends ViewMsgBean implements Serializable {
             return null;
         }
         String criptedPassword = Util.cript(password);
-        User user = new UserEntity(username, criptedPassword, email,
+        User user = new User(username, criptedPassword, email,
                 firstname, lastname, null, null, null, null);
         user.setAcceptedTerms(true);
         userService.update(user);

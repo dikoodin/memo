@@ -22,7 +22,7 @@ public class Identity implements Serializable {
     /**
      *
      */
-    private static final long serialVersionUID = -3419198193908035430L;
+    private static final long serialVersionUID = 7011679411342956037L;
 
     private static final Logger LOG = LoggerFactory.getLogger(Identity.class);
     public static final String NAME = "identity";

@@ -97,7 +97,7 @@ input[type="text"],input[type="password"],textarea,select {
 
 .k-footer {
     left: auto;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 1280px;
     height: 42px;

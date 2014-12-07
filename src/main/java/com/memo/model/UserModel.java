@@ -9,7 +9,7 @@ public class UserModel implements Model {
     /**
      *
      */
-    private static final long serialVersionUID = -6992411340935846064L;
+    private static final long serialVersionUID = -3950065003202277757L;
 
     private Long id;
     private String username;
@@ -34,7 +34,8 @@ public class UserModel implements Model {
         this.address = builder.address;
         this.tel = builder.tel;
         this.mob = builder.mob;
-        this.birthday = builder.birthday ;
+        this.birthday = builder.birthday == null ? null : new Date(
+                        builder.birthday.getTime());
     }
 
     public Long getId() {
@@ -70,7 +71,7 @@ public class UserModel implements Model {
     }
 
     public Date getBirthday() {
-        return birthday;
+        return birthday == null ? null : new Date(birthday.getTime());
     }
 
     public String getFullName() {
@@ -134,7 +135,7 @@ public class UserModel implements Model {
         }
 
         public Builder birthday(Date birthday) {
-            this.birthday = birthday;
+            this.birthday = birthday == null ? null : new Date(birthday.getTime());
             return this;
         }
 

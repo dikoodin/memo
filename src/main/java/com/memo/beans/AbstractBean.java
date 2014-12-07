@@ -7,7 +7,7 @@ public abstract class AbstractBean implements Serializable {
     /**
      *
      */
-    private static final long serialVersionUID = 862318493509410370L;
+    private static final long serialVersionUID = 1848529284790603330L;
 
     private boolean error;
 

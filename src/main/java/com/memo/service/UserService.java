@@ -3,7 +3,6 @@ package com.memo.service;
 import java.util.List;
 
 import com.memo.entity.User;
-import com.memo.entity.UserEntity;
 
 public interface UserService {
 
@@ -17,6 +16,6 @@ public interface UserService {
 
     public User findByEmail(String email);
 
-    public List<UserEntity> getUsers(int page);
+    public List<User> getUsers(int page);
 
 }

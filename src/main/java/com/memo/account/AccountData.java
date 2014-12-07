@@ -10,7 +10,7 @@ public class AccountData implements Serializable {
     /**
      *
      */
-    private static final long serialVersionUID = -5624307510523302563L;
+    private static final long serialVersionUID = 8000046909664404997L;
 
     private Long userId;
     private String username;
@@ -120,11 +120,11 @@ public class AccountData implements Serializable {
     }
 
     public Date getBirthday() {
-        return birthday;
+        return birthday == null ? null : new Date(birthday.getTime());
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+        this.birthday = birthday == null ? null : new Date(birthday.getTime());
     }
 
 }

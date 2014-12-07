@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.memo.auth.Identity;
-import com.memo.entity.UserEntity;
+import com.memo.entity.User;
 import com.memo.mock.MockFacesContext;
 import com.memo.mock.MockMessageIntegrpolator;
 import com.memo.model.CommentModel;
@@ -32,7 +32,7 @@ public class KDataModelTest {
         ExternalContext externalContext = Mockito.mock(ExternalContext.class);
         Application application = Mockito.mock(Application.class);
         Identity identity = Mockito.mock(Identity.class);
-        Mockito.when(identity.getUser()).thenReturn(new UserEntity());
+        Mockito.when(identity.getUser()).thenReturn(new User());
         Mockito.when(application.evaluateExpressionGet(Matchers.any(FacesContext.class),
                 Matchers.anyString(), Matchers.any(Class.class))).thenReturn(identity);
         MockFacesContext.mockFacesContext(externalContext, application);

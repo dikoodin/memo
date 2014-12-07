@@ -1,9 +1,16 @@
 package com.memo.beans;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 
 @ManagedBean(name = "selection")
-public class Selection {
+public class Selection implements Serializable {
+
+    /**
+     *
+     */
+    private static final long serialVersionUID = -3552231431085529259L;
 
     private long itemId;
     private long dataId;

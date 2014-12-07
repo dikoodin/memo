@@ -9,7 +9,7 @@ public class CommentModel implements Model {
     /**
      *
      */
-    private static final long serialVersionUID = -7642605358448921205L;
+    private static final long serialVersionUID = 6016133759925550879L;
 
     private boolean marked;
     private Long commentId;
@@ -28,7 +28,7 @@ public class CommentModel implements Model {
         this.userId = builder.userId;
         this.comment = builder.comment;
         this.name = builder.name;
-        this.created = builder.created;
+        this.created = builder.created == null ? null : new Date(builder.created.getTime());
         this.approved = builder.approved;
     }
 
@@ -57,7 +57,7 @@ public class CommentModel implements Model {
     }
 
     public Date getCreated() {
-        return created;
+        return created == null ? null : new Date(created.getTime());
     }
 
     public boolean isApproved() {
@@ -102,7 +102,7 @@ public class CommentModel implements Model {
         }
 
         public Builder created(Date created) {
-            this.created = created;
+            this.created = created == null ? null : new Date(created.getTime());
             return this;
         }
 

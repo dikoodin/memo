@@ -17,8 +17,7 @@ import com.memo.auth.Identity;
 import com.memo.datamodel.DataModel;
 import com.memo.datamodel.DataProvider;
 import com.memo.entity.Comment;
-import com.memo.entity.CommentEntity;
-import com.memo.entity.UserEntity;
+import com.memo.entity.User;
 import com.memo.mock.MockFacesContext;
 import com.memo.mock.MockMessageIntegrpolator;
 import com.memo.model.CommentModel;
@@ -36,7 +35,7 @@ public class CommentListBeanTest {
         ExternalContext externalContext = Mockito.mock(ExternalContext.class);
         Application application = Mockito.mock(Application.class);
         Identity identity = Mockito.mock(Identity.class);
-        Mockito.when(identity.getUser()).thenReturn(new UserEntity());
+        Mockito.when(identity.getUser()).thenReturn(new User());
         Mockito.when(application.evaluateExpressionGet(Matchers.any(FacesContext.class),
                 Matchers.anyString(), Matchers.any(Class.class))).thenReturn(identity);
         MockFacesContext.mockFacesContext(externalContext, application);
@@ -50,7 +49,7 @@ public class CommentListBeanTest {
         //GIVEN
         Long commentId = 1L;
         boolean approved = false;
-        Comment comment = new CommentEntity();
+        Comment comment = new Comment();
         comment.setApproved(approved);
         Mockito.when(commentService.find(Matchers.anyLong())).thenReturn(comment);
 

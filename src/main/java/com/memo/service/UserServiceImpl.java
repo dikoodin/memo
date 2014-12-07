@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.memo.dao.UserDAO;
 import com.memo.entity.User;
-import com.memo.entity.UserEntity;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -37,7 +36,7 @@ public class UserServiceImpl implements UserService {
         return userDAO.findByEmail(email);
     }
 
-    public List<UserEntity> getUsers(int page) {
+    public List<User> getUsers(int page) {
         return userDAO.getUsers(page);
     }
 

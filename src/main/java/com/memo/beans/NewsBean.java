@@ -1,6 +1,5 @@
 package com.memo.beans;
 
-import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,12 +13,12 @@ import com.memo.service.NewsService;
 
 @ManagedBean(name = "newsBean")
 @ViewScoped
-public class NewsBean extends ViewMsgBean implements Serializable {
+public class NewsBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -3111988099407754250L;
+    private static final long serialVersionUID = 8216885765959843504L;
 
     private List<News> newsList = new LinkedList<News>();
 

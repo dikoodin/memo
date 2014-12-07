@@ -1,7 +1,5 @@
 package com.memo.account;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -17,12 +15,12 @@ import com.memo.utils.Util;
 
 @ManagedBean(name = "myAccount")
 @ViewScoped
-public class MyAccount extends ViewMsgBean implements Serializable {
+public class MyAccount extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = -5307825474425830753L;
+    private static final long serialVersionUID = 1832958031886695765L;
 
     private AccountData accountData;
 

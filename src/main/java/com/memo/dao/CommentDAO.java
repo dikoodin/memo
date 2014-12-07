@@ -35,7 +35,7 @@ public class CommentDAO extends DAO {
 
     public Long getApprovedCommentsCount() {
         return (Long) getEntityManager()
-                .createQuery("SELECT COUNT(e.id) FROM CommentEntity e WHERE e.id > 0 AND e.approved = true")
+                .createQuery("SELECT COUNT(e.id) FROM Comment e WHERE e.id > 0 AND e.approved = true")
                 .setMaxResults(1)
                 .getSingleResult();
     }
@@ -43,14 +43,14 @@ public class CommentDAO extends DAO {
     @SuppressWarnings("unchecked")
     public List<Comment> getApprovedComments(int first, int numberOfRows) {
         return getEntityManager()
-                .createQuery("SELECT e FROM CommentEntity e WHERE e.id > 0 AND e.approved = true ORDER BY e.id DESC")
+                .createQuery("SELECT e FROM Comment e WHERE e.id > 0 AND e.approved = true ORDER BY e.id DESC")
                 .setFirstResult(first).setMaxResults(numberOfRows)
                 .getResultList();
     }
 
     public Long getAdminCommentCount() {
         return (Long) getEntityManager()
-                .createQuery("SELECT COUNT(e.id) FROM CommentEntity e WHERE e.id > 0 ")
+                .createQuery("SELECT COUNT(e.id) FROM Comment e WHERE e.id > 0 ")
                 .setMaxResults(1)
                 .getSingleResult();
     }
@@ -58,7 +58,7 @@ public class CommentDAO extends DAO {
     @SuppressWarnings("unchecked")
     public List<Comment> getAdminComments(int first, int numberOfRows) {
         return getEntityManager()
-                .createQuery("SELECT e FROM CommentEntity e WHERE e.id > 0 ORDER BY e.approved, e.id DESC")
+                .createQuery("SELECT e FROM Comment e WHERE e.id > 0 ORDER BY e.approved, e.id DESC")
                 .setFirstResult(first).setMaxResults(numberOfRows)
                 .getResultList();
     }

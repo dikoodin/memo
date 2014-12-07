@@ -1,7 +1,5 @@
 package com.memo.beans;
 
-import java.io.Serializable;
-
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -22,14 +20,13 @@ import com.memo.utils.Util;
 
 @ManagedBean(name = "wallBean")
 @ViewScoped
-public class WallBean extends ViewMsgBean implements Serializable {
+public class WallBean extends ViewMsgBean {
 
     /**
      *
      */
-    private static final long serialVersionUID = 3618231760842465263L;
+    private static final long serialVersionUID = 1797536523104516795L;
 
-    public static final String K_NAME = "kWall";
     public static final String TABEL_ID = "comments_";
 
     @ManagedProperty("#{commentDataProviderImpl}")
