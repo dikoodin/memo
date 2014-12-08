@@ -1,7 +1,7 @@
 MemoSoft Demo
 =============
 
-Application is to demonstrate integration of Java 6, JSF 2.0, Spring 3, JPA, PostgreSQL, Tomcat 7. Please check the versions in pom.xml file. To build application you will need installed [apache maven](http://maven.apache.org/download.cgi).
+Application is to demonstrate integration of Java 6, JSF 2.0, Spring 3, JPA, PostgreSQL, Tomcat 7. Please check the versions in pom.xml file. To build application you will need to have installed [apache maven](http://maven.apache.org/download.cgi).
 
 Running the Demo
 ----------------
