@@ -5,23 +5,11 @@
         id="WebApp_ID" version="3.0">
   <display-name>memosoft</display-name>
   <context-param>
-    <param-name>MAX_IMG_SIZE</param-name>
-    <param-value>1024000</param-value>
-  </context-param>
-  <context-param>
-    <param-name>WEBAPPS_PATH</param-name>
-    <param-value>D:/dev/servers/apache-tomcat-7.0.34/webapps</param-value>
-  </context-param>
-  <context-param>
-    <param-name>IMG_PATH</param-name>
-    <param-value>/mimg</param-value>
-  </context-param>
-  <context-param>
     <param-name>primefaces.THEME</param-name>
     <param-value>casablanca</param-value>
   </context-param>
   <context-param>
-    <param-name>facelets.SKIP_COMMENTS</param-name>
+    <param-name>javax.faces.FACELETS_SKIP_COMMENTS</param-name>
     <param-value>true</param-value>
   </context-param>
   <context-param>
@@ -33,17 +21,13 @@
   </welcome-file-list>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>
-            /WEB-INF/applicationContext.xml
-         </param-value>
+    <param-value>/WEB-INF/applicationContext.xml</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   <listener>
-    <listener-class>
-            org.springframework.web.context.request.RequestContextListener
-        </listener-class>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
   </listener>
   <context-param>
     <param-name>javax.faces.PROJECT_STAGE</param-name>
@@ -90,31 +74,4 @@
     <error-code>404</error-code>
     <location>/pages/page_not_found.xhtml</location>
   </error-page>
-  <servlet>
-    <display-name>Apache-Axis Servlet</display-name>
-    <servlet-name>AxisServlet</servlet-name>
-    <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AxisServlet</servlet-name>
-    <url-pattern>/servlet/AxisServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AxisServlet</servlet-name>
-    <url-pattern>*.jws</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>AxisServlet</servlet-name>
-    <url-pattern>/services/*</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <display-name>Axis Admin Servlet</display-name>
-    <servlet-name>AdminServlet</servlet-name>
-    <servlet-class>org.apache.axis.transport.http.AdminServlet</servlet-class>
-    <load-on-startup>100</load-on-startup>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>AdminServlet</servlet-name>
-    <url-pattern>/servlet/AdminServlet</url-pattern>
-  </servlet-mapping>
 </web-app>

@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 public class MessageInterpolator {
 
-    private static final Logger LOG = LoggerFactory.getLogger(MessageInterpolator.class);
+    private static Logger log = LoggerFactory.getLogger(MessageInterpolator.class);
 
     protected static volatile MessageInterpolator interpolator;
 
@@ -35,7 +35,7 @@ public class MessageInterpolator {
         try {
             value = bundle.getString(key);
         } catch (MissingResourceException e) {
-            LOG.warn("Missing message value for key {}.", key);
+            log.warn("Missing message value for key {}.", key);
         }
         return value;
     }

@@ -36,7 +36,7 @@ public class AccountData implements Serializable {
         this.address = user.getAddress();
         this.tel = user.getTel();
         this.mob = user.getMob();
-        this.birthday = user.getBirthday();
+        this.birthday = user.getBirthday() == null ? null : new Date(user.getBirthday().getTime());
     }
 
     public Long getUserId() {

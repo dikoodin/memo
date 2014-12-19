@@ -24,7 +24,7 @@ public class Identity implements Serializable {
      */
     private static final long serialVersionUID = 7011679411342956037L;
 
-    private static final Logger LOG = LoggerFactory.getLogger(Identity.class);
+    private static Logger log = LoggerFactory.getLogger(Identity.class);
     public static final String NAME = "identity";
 
     private User user;
@@ -34,7 +34,7 @@ public class Identity implements Serializable {
 
     @PostConstruct
     public void init() {
-        LOG.info("=== Init identity ===");
+        log.info("=== Init identity ===");
     }
 
     public void setUser(User user) {

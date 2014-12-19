@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 
 public class MemoExceptionHandlerWrapper extends ExceptionHandlerWrapper {
 
-    private static final Logger log = LoggerFactory.getLogger(MemoExceptionHandlerWrapper.class);
+    private static Logger log = LoggerFactory.getLogger(MemoExceptionHandlerWrapper.class);
     private ExceptionHandler wrapped;
 
     MemoExceptionHandlerWrapper(ExceptionHandler exception) {

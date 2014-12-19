@@ -15,7 +15,7 @@ import com.memo.utils.Util;
 
 public abstract class DAO {
 
-    private static final Logger LOG = LoggerFactory.getLogger(DAO.class);
+    private static Logger log = LoggerFactory.getLogger(DAO.class);
 
     @PersistenceContext
     private EntityManager entityManager;
@@ -65,7 +65,7 @@ public abstract class DAO {
 
     public void delete(BaseEntity base) {
         if (base == null) {
-            LOG.error("Call indsert with null.");
+            log.error("Call indsert with null.");
             return;
         }
         base = (BaseEntity) merge(base);
@@ -74,7 +74,7 @@ public abstract class DAO {
 
     public void insert(BaseEntity base) {
         if (base == null) {
-            LOG.error("Call insert with null.");
+            log.error("Call insert with null.");
             return;
         }
         base.setCreated(Util.getNow());
@@ -83,7 +83,7 @@ public abstract class DAO {
 
     public BaseEntity update(BaseEntity base) {
         if (base == null) {
-            LOG.error("Call update with null.");
+            log.error("Call update with null.");
             return null;
         }
         Date moment = Util.getNow();

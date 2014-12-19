@@ -55,21 +55,21 @@ public class News extends VersionEntity {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "startdate")
     public Date getStart() {
-        return start == null ? null : new Date(start.getTime());
+        return start;
     }
 
     public void setStart(Date start) {
-        this.start = start == null ? null : new Date(start.getTime());;
+        this.start = start;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "enddate")
     public Date getEnd() {
-        return end == null ? null : new Date(end.getTime());
+        return end;
     }
 
     public void setEnd(Date end) {
-        this.end = end == null ? null : new Date(end.getTime());;
+        this.end = end;
     }
 
     @Column(name = "active_")

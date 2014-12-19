@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 public class Component {
 
-    private static final Logger LOG = LoggerFactory.getLogger(Component.class);
+    private static Logger log = LoggerFactory.getLogger(Component.class);
 
     public static Object getInstance(String name) {
         FacesContext facesContext = FacesContext.getCurrentInstance();
@@ -22,7 +22,7 @@ public class Component {
         try {
             return Long.valueOf(param);
         } catch (NumberFormatException e) {
-            LOG.error("Can not create Long from param: {}", param);
+            log.error("Can not create Long from param: {}", param);
         }
         return null;
     }

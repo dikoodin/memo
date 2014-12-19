@@ -16,7 +16,7 @@ import com.memo.utils.Const;
 @Repository
 public class UserDAO extends DAO {
 
-    private static final Logger LOG = LoggerFactory.getLogger(UserDAO.class);
+    private static Logger log = LoggerFactory.getLogger(UserDAO.class);
 
     public User find(long userId) {
         try {
@@ -54,7 +54,7 @@ public class UserDAO extends DAO {
             Integer one = (Integer) query.getSingleResult();
             return isResultOne(one);
         } catch (NoResultException e) {
-            LOG.debug("User with usernaem {} and email {} is not found!",
+            log.debug("User with usernaem {} and email {} is not found!",
                     username, email);
         }
         return exist;

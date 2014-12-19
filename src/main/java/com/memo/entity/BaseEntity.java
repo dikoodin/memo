@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.persistence.Transient;
 
 @MappedSuperclass
 public abstract class BaseEntity implements Serializable {
@@ -23,7 +22,6 @@ public abstract class BaseEntity implements Serializable {
     protected Long id;
     protected Date created;
     protected Date modified;
-    protected boolean checked;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,30 +36,21 @@ public abstract class BaseEntity implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "created", nullable = false)
     public Date getCreated() {
-        return created == null ? null : new Date(created.getTime());
+        return created;
     }
 
     public void setCreated(Date created) {
-        this.created = created == null ? null : new Date(created.getTime());
+        this.created = created;
     }
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "modified")
     public Date getModified() {
-        return modified == null ? null : new Date(modified.getTime());
+        return modified;
     }
 
     public void setModified(Date modified) {
-        this.modified = modified == null ? null : new Date(modified.getTime());
-    }
-
-    @Transient
-    public boolean isChecked() {
-        return checked;
-    }
-
-    public void setChecked(boolean checked) {
-        this.checked = checked;
+        this.modified = modified;
     }
 
     @Override

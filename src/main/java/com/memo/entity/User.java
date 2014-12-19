@@ -131,11 +131,11 @@ public class User extends VersionEntity {
     @Column(name = "birthday")
     @Temporal(TemporalType.DATE)
     public Date getBirthday() {
-        return birthday == null ? null : new Date(birthday.getTime());
+        return birthday;
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday == null ? null : new Date(birthday.getTime());
+        this.birthday = birthday;
     }
 
     @Column(name = "admin")
@@ -168,7 +168,7 @@ public class User extends VersionEntity {
         this.address = data.getAddress();
         this.tel = data.getTel();
         this.mob = data.getMob();
-        this.birthday = data.getBirthday();
+        this.birthday = data.getBirthday() == null ? null : new Date(data.getBirthday().getTime());
     }
 
 }

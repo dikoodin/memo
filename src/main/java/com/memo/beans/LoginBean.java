@@ -3,7 +3,7 @@ package com.memo.beans;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import com.memo.auth.AuthenticationService;
@@ -14,8 +14,8 @@ import com.memo.utils.Component;
 import com.memo.utils.Const;
 import com.memo.utils.Util;
 
+@ViewScoped
 @ManagedBean(name = "loginBean")
-@SessionScoped
 public class LoginBean extends ViewMsgBean {
 
     /**

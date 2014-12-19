@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 
 public class JSFUtils {
 
-    private static final Logger LOG = LoggerFactory.getLogger(JSFUtils.class);
+    private static Logger log = LoggerFactory.getLogger(JSFUtils.class);
 
     public static UIComponent findComponentInRoot(String id) {
         UIComponent component = null;
@@ -30,7 +30,7 @@ public class JSFUtils {
 
     public static UIComponent findComponent(UIComponent base, String id) {
         if (id.equals(base.getId())) {
-            LOG.debug("id {} and base.id {} match each other", id, base.getId());
+            log.debug("id {} and base.id {} match each other", id, base.getId());
             return base;
         }
         UIComponent kid = null;
@@ -56,7 +56,7 @@ public class JSFUtils {
     public static void resetDataTable(Class clazz, String componentId, int first) {
         UIComponent component = findComponentInRoot(componentId);
         if (component == null) {
-            LOG.warn("Can not find DataTable id {} ", componentId);
+            log.warn("Can not find DataTable id {} ", componentId);
             return;
         }
         if (DataTable.class.equals(clazz)) {
