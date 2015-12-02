@@ -9,7 +9,7 @@ public abstract class MockMessageIntegrpolator extends MessageInterpolator {
 
     public static void mock() {
         MessageInterpolator interpolator = Mockito.mock(MessageInterpolator.class);
-        MockMessageIntegrpolator.interpolator = interpolator;
+        MockMessageIntegrpolator.setInstance(interpolator);
         Mockito.when(interpolator.interpolate(Matchers.anyString())).thenReturn("value");
     }
 

@@ -36,7 +36,7 @@ public class AccountData implements Serializable {
         this.address = user.getAddress();
         this.tel = user.getTel();
         this.mob = user.getMob();
-        this.birthday = user.getBirthday() == null ? null : new Date(user.getBirthday().getTime());
+        this.birthday = user.getBirthday();
     }
 
     public Long getUserId() {
@@ -120,11 +120,11 @@ public class AccountData implements Serializable {
     }
 
     public Date getBirthday() {
-        return birthday == null ? null : new Date(birthday.getTime());
+        return birthday;
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday == null ? null : new Date(birthday.getTime());
+        this.birthday = birthday;
     }
 
 }

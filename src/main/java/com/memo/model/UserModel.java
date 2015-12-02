@@ -34,8 +34,7 @@ public class UserModel implements Model {
         this.address = builder.address;
         this.tel = builder.tel;
         this.mob = builder.mob;
-        this.birthday = builder.birthday == null ? null : new Date(
-                        builder.birthday.getTime());
+        this.birthday = builder.birthday;
     }
 
     public Long getId() {
@@ -71,7 +70,7 @@ public class UserModel implements Model {
     }
 
     public Date getBirthday() {
-        return birthday == null ? null : new Date(birthday.getTime());
+        return birthday;
     }
 
     public String getFullName() {
@@ -135,7 +134,7 @@ public class UserModel implements Model {
         }
 
         public Builder birthday(Date birthday) {
-            this.birthday = birthday == null ? null : new Date(birthday.getTime());
+            this.birthday = birthday;
             return this;
         }
 

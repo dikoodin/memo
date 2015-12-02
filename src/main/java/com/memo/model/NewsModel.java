@@ -25,8 +25,8 @@ public class NewsModel implements Model {
 
     public NewsModel(Builder builder) {
         this.id = builder.id;
-        this.start = builder.start == null ? null : new Date(builder.start.getTime());
-        this.end = builder.end == null ? null : new Date(builder.end.getTime());
+        this.start = builder.start;
+        this.end = builder.end;
         this.active = builder.active;
         this.shortDescription = builder.shortDescription;
         this.name = builder.name;
@@ -38,11 +38,11 @@ public class NewsModel implements Model {
     }
 
     public Date getStart() {
-        return start == null ? null : new Date(start.getTime());
+        return start;
     }
 
     public Date getEnd() {
-        return end == null ? null : new Date(end.getTime());
+        return end;
     }
 
     public boolean isActive() {
@@ -82,12 +82,12 @@ public class NewsModel implements Model {
         }
 
         public Builder start(Date start) {
-            this.start = start == null ? null : new Date(start.getTime());;
+            this.start = start;
             return this;
         }
 
         public Builder end(Date end) {
-            this.end = end == null ? null : new Date(end.getTime());;
+            this.end = end;
             return this;
         }
 

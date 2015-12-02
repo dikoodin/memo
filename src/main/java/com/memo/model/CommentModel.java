@@ -28,7 +28,9 @@ public class CommentModel implements Model {
         this.userId = builder.userId;
         this.comment = builder.comment;
         this.name = builder.name;
-        this.created = builder.created == null ? null : new Date(builder.created.getTime());
+        this.created = builder.created == null
+                       ? null
+                       : new Date(builder.created.getTime());
         this.approved = builder.approved;
     }
 
@@ -57,7 +59,7 @@ public class CommentModel implements Model {
     }
 
     public Date getCreated() {
-        return created == null ? null : new Date(created.getTime());
+        return created;
     }
 
     public boolean isApproved() {
@@ -102,7 +104,7 @@ public class CommentModel implements Model {
         }
 
         public Builder created(Date created) {
-            this.created = created == null ? null : new Date(created.getTime());
+            this.created = created;
             return this;
         }
 

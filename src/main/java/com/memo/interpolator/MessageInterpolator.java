@@ -5,17 +5,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.ResourceBundle;
-
 import javax.faces.context.FacesContext;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MessageInterpolator {
 
     private static Logger log = LoggerFactory.getLogger(MessageInterpolator.class);
-
-    protected static volatile MessageInterpolator interpolator;
 
     private final Map<Locale, ResourceBundle> cache = new HashMap<Locale, ResourceBundle>();
 
@@ -24,8 +20,8 @@ public class MessageInterpolator {
     }
 
     public String interpolate(String key) {
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        Locale locale = facesContext.getViewRoot().getLocale();
+        FacesContext fc = FacesContext.getCurrentInstance();
+        Locale locale = fc.getViewRoot().getLocale();
         ResourceBundle bundle = cache.get(locale);
         if (bundle == null) {
             bundle = ResourceBundle.getBundle("messages", locale);
@@ -41,12 +37,15 @@ public class MessageInterpolator {
     }
 
     public static MessageInterpolator instance() {
-        MessageInterpolator value = interpolator;
-        if (value == null) {
-            value = new MessageInterpolator();
-            interpolator = value;
-        }
-        return value;
+        return MessageInterpolatorHelper.INSTANCE;
+    }
+
+    private static final class MessageInterpolatorHelper {
+        private static MessageInterpolator INSTANCE = new MessageInterpolator();
+    }
+
+    protected static void setInstance(MessageInterpolator interpolator) {
+        MessageInterpolatorHelper.INSTANCE = interpolator;
     }
 
 }

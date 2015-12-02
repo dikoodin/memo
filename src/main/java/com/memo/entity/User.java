@@ -168,7 +168,7 @@ public class User extends VersionEntity {
         this.address = data.getAddress();
         this.tel = data.getTel();
         this.mob = data.getMob();
-        this.birthday = data.getBirthday() == null ? null : new Date(data.getBirthday().getTime());
+        this.birthday = data.getBirthday();
     }
 
 }

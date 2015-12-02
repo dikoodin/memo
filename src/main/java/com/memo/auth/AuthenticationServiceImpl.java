@@ -2,8 +2,8 @@ package com.memo.auth;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -16,7 +16,7 @@ import com.memo.utils.Util;
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
 
-    private static final Log log = LogFactory.getLog(AuthenticationServiceImpl.class);
+    private static Logger log = LoggerFactory.getLogger(AuthenticationServiceImpl.class);
 
     @Resource(name = "authenticationManager")
     private AuthenticationManager authenticationManager; // specific for Spring Security
@@ -35,7 +35,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 return true;
             }
         } catch (AuthenticationException e) {
-            log.error("AuthenticationException " + e.getMessage());
+            log.error("AuthenticationException with message " + e.getMessage());
         }
         return false;
     }
