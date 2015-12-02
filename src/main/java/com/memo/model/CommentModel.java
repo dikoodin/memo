@@ -28,9 +28,7 @@ public class CommentModel implements Model {
         this.userId = builder.userId;
         this.comment = builder.comment;
         this.name = builder.name;
-        this.created = builder.created == null
-                       ? null
-                       : new Date(builder.created.getTime());
+        this.created = builder.created;
         this.approved = builder.approved;
     }
 
